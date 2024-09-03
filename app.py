@@ -1,4 +1,4 @@
-from bottle import get, run, template, static_file
+from bottle import get, run, post, put, delete, template, static_file
 
 ####################################
 @get("/") # decorator
@@ -39,6 +39,31 @@ HTTP METHOD DELETE (To delete data)
 def _():
     return "items"
 
+####################################
+@get("/items/<id>")
+def _(id):
+    # Dictionary
+    item = {
+        "id" : 1,
+        "name" : "a"
+    }
+    return item
+
+####################################
+@post("/items")
+def _():
+    return "item created"
+
+####################################
+# f string
+@put("/items/<id>")
+def _(id):
+    return f"item {id} updated"
+
+####################################
+@delete("/items/<id>")
+def _(id):
+    return f"item {id} deleted"
 
 
 ####################################
