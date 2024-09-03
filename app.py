@@ -11,6 +11,11 @@ def _():
     return static_file("app.css", ".")
 
 ####################################
+@get("/app.js")
+def _():
+    return static_file("app.js", ".")
+
+####################################
 run(host="0.0.0.0", port=80, debug=True, reloader=True, interval=0.3)
 
 
